@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытка для Ани❤️</title>
+    <style>body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d0ebc0;
+            background-image: linear-gradient(white 25%, transparent 25%),
+                              linear-gradient(transparent 75%, white 75%);
+            background-size: 100% 50px;
+        }
+        
+
+        .card {
+            padding: 20px;
+            border: 2px solid #0cf23a;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            background-color: #b3f285;
+            text-align: center;
+        }
+
+        button {
+            background-color: #ff4b5c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e43f50;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>С Днем Рождения, Аня!</h1>
+        <p>С любовью, Вадим.</p>
+        <p>Аня, каждый твой день наполняет мою жизнь светом, теплом и радостью. Желаю, чтобы в этот особенный день ты получила столько же счастья, сколько даришь его мне каждый день. С днём рождения!</p>
+        <button onclick="showHeart()">❤️</button>
+        <audio id="birthdaySong" src="Olvi_-_Ty_odnazhdy_mne_prisnilas_(musmore.com).mp3" preload="auto"></audio>
+<button onclick="playSong()">Включить музыку 🎶</button>
+    </div>
+
+    <script>
+    function playSong() {
+    const song = document.getElementById('birthdaySong');
+    if (song.paused) {
+        song.play();
+    } else {
+        song.pause();
+    }
+}
+        function showHeart() {
+            const heart = document.createElement('span');
+            heart.textContent = "❤️";
+            heart.style.fontSize = "50px";
+            heart.style.animation = "pulse 1s infinite";
+            document.querySelector(".card").appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
